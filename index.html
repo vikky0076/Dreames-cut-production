@@ -669,6 +669,29 @@
             </div>
           </div>
         </div>
+
+        <!-- Registration Form Card -->
+        <div class="contact-form-card glass-card reveal reveal-delay-1">
+          <h3 class="contact-info-title">Send a Request</h3>
+          <p class="contact-info-desc">Fill in your details to start discussing your project on WhatsApp.</p>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+              <input type="text" id="form-name" class="form-input" placeholder=" " required autocomplete="name">
+              <label for="form-name" class="form-label">Your Name</label>
+              <div class="form-error"></div>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="form-message" class="form-input" placeholder=" " rows="5" required style="resize: vertical; min-height: 120px;"></textarea>
+              <label for="form-message" class="form-label">Project Details / What do you need?</label>
+              <div class="form-error"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Send Message via WhatsApp
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>

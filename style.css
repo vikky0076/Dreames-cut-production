@@ -1278,9 +1278,12 @@ img, video {
 
 /* Contact Section & Map */
 .contact-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .contact-info-card {

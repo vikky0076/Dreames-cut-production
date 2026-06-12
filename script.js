@@ -351,9 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
       let isValid = true;
 
       const nameInput = document.getElementById('form-name');
-      const emailInput = document.getElementById('form-email');
-      const phoneInput = document.getElementById('form-phone');
-      const projectInput = document.getElementById('form-project');
       const messageInput = document.getElementById('form-message');
 
       // 1. Name Check
@@ -364,60 +361,23 @@ document.addEventListener('DOMContentLoaded', () => {
         clearError(nameInput);
       }
 
-      // 2. Email Check
-      if (emailInput.value.trim() === '') {
-        setError(emailInput, 'Email is required.');
-        isValid = false;
-      } else if (!validateEmail(emailInput.value.trim())) {
-        setError(emailInput, 'Please enter a valid email format.');
-        isValid = false;
-      } else {
-        clearError(emailInput);
-      }
-
-      // 3. Phone Check
-      if (phoneInput.value.trim() === '') {
-        setError(phoneInput, 'Phone number is required.');
-        isValid = false;
-      } else if (!validatePhone(phoneInput.value.trim())) {
-        setError(phoneInput, 'Enter a valid 10-digit Indian phone number.');
-        isValid = false;
-      } else {
-        clearError(phoneInput);
-      }
-
-      // 4. Project Select Check
-      if (!projectInput.value) {
-        setError(projectInput, 'Please select a project type.');
-        isValid = false;
-      } else {
-        clearError(projectInput);
-      }
-
-      // 5. Message Check
+      // 2. Message Check
       if (messageInput.value.trim() === '') {
-        setError(messageInput, 'Message cannot be empty.');
+        setError(messageInput, 'Message description is required.');
         isValid = false;
       } else {
         clearError(messageInput);
       }
 
       if (isValid) {
-        // Gather variables
-        const name = encodeURIComponent(nameInput.value.trim());
-        const email = encodeURIComponent(emailInput.value.trim());
-        const phone = encodeURIComponent(phoneInput.value.trim());
-        const projectType = encodeURIComponent(projectInput.options[projectInput.selectedIndex].text);
-        const message = encodeURIComponent(messageInput.value.trim());
-
-        // Beautiful custom feedback
-        alert(`Thank you, ${nameInput.value.trim()}! Your inquiry has been validated. Connecting you directly with Sathish Kumar on WhatsApp to discuss your ${projectInput.options[projectInput.selectedIndex].text}...`);
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
 
         // Construct WhatsApp message URL
-        const whatsappText = `Hi Sathish, I am *${nameInput.value.trim()}* (Email: ${emailInput.value.trim()}, Tel: ${phoneInput.value.trim()}). I want to book/discuss: *${projectInput.options[projectInput.selectedIndex].text}*. Details: ${messageInput.value.trim()}`;
+        const whatsappText = `Hi Sathish, I am *${name}*.\n\nHere is what I need:\n${message}`;
         const whatsappUrl = `https://api.whatsapp.com/send?phone=918838303167&text=${encodeURIComponent(whatsappText)}`;
 
-        // Open WhatsApp in a new tab
+        // Open WhatsApp in a new tab immediately (no alert dialog)
         window.open(whatsappUrl, '_blank');
 
         // Clear Form fields
