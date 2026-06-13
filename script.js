@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const message = messageInput.value.trim();
 
         // Construct WhatsApp message URL
-        const whatsappText = `Hi Sathish, Founder of dream's cut productions, I am *${name}*.\n\nHere is what I need:\n${message}`;
+        const whatsappText = `Hi Sathish, I am *${name}*.\n\nHere is what I need:\n${message}`;
         const whatsappUrl = `https://api.whatsapp.com/send?phone=918838303167&text=${encodeURIComponent(whatsappText)}`;
 
         // Open WhatsApp in a new tab immediately (no alert dialog)
