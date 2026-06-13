@@ -1647,6 +1647,10 @@ img, video {
   font-size: 0.85rem;
   color: var(--text-dark-gray);
 }
+.pro{
+  font-size: 0.85rem;
+  color: var(--text-dark-gray);
+}
 
 .footer-bottom-link:hover {
   color: var(--primary-gold);
